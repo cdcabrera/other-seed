@@ -10,6 +10,8 @@ Enable extras
 - enabled scss file import in directory
 
 Build clean up
+- default GitHub PR, issue templates
+- default GitHub PR workflow
 - npm scripts streamlined
 - clean build directory automatically
 - tsconfig, updating it updates webpack output
