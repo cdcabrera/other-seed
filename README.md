@@ -25,3 +25,25 @@ Build clean up
   - favicon.png, file
   - manifest.json, file
   - robots.txt, file
+- allow consistent dotenv files
+  - .env, .env.local
+  - .env.test, .env.test.local
+  - .env.development, .env.development.local
+  - .env.production, .env.production.local
+
+## dotenv files
+dotenv files are:
+- can be checked into the root of webpack based project. `.env[*.local]` files are gitignored.
+- are not required
+- limited to compiling in `JSX`, `TSX`, `JS`, and `TS` files. They are not compiled into files consider static, specifically `*.html`
+  - if the values need to be used in a file outside of `src` we recommend using the NPM `dotenv` directly
+- loaded to the specific actions, and overlap in the following order.
+  - `$ yarn build` = `.env.production.local` -> `.env.production` -> `.env`
+  - `$ yarn test` = `.env.test.local` -> `.env.test` -> `.env`
+  - `$ yarn start` = `.env.development.local` -> `.env.development` -> `.env`
+- you can access values by using `process.env.[name of parameter]`
+- parameter values are considered strings
+- you can access `process.env.NODE_ENV`
+  - `$ yarn build` = `process.env.NODE_ENV` = `production`
+  - `$ yarn test` = `process.env.NODE_ENV` = `test`
+  - `$ yarn start` = `process.env.NODE_ENV` = `development`

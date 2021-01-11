@@ -22,7 +22,6 @@ coverage
 # repo
 dist
 build
-.env
 .env*.local
 .docs
 .gitkeep
